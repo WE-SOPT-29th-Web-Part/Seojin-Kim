@@ -4,34 +4,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/init.css">
     <link rel="stylesheet" href="stylesheets/index.css">
     <title>To Do List</title>
 </head>
 <body>
-    <header></header>
-    <nav>
-        <button>오늘만 보기</button>
-        <button>내일만 보기</button>
-        <button>함께 보기</button>
+    <header class="align-center font-30 font-bold bg-pink height-5 flex-center">
+        <span>Simple To Do List</span>
+    </header>
+    <nav class="flex-center height-5">
+        <button class="button button-small bg-orange font-white">오늘만 보기</button>
+        <button class="button button-small bg-orange font-white">내일만 보기</button>
+        <button class="button button-small bg-orange font-white">함께 보기</button>
     </nav>
-    <main>
-        <section>
-            <h2>오늘 할 일</h2>
-            <ul></ul>
-            <input type="text">
-            <div>
-                <button></button>
+    <main class="flex-row flex-row-2 height-85">
+        <section class="border-right-black padding-20 bg-gray flex-column">
+            <h2 class="font-bold font-24 align-center">오늘 할 일</h2>
+            <ul class="flex-1">
+                <li class="flex-row border-bottom-black padding-vertical-10">
+                    <div class="font-20">자스 공부</div>
+                    <button class="button round-20 bg-black font-white font-12">X</button>
+                </li>
+                <li class="flex-row border-bottom-black padding-vertical-10">
+                    <div class="font-20">자스 공부</div>
+                    <button class="button round-20 bg-black font-white font-12">X</button>
+                </li>
+            </ul>
+            <input type="text" class="padding-10 font-20">
+            <div class="align-center padding-top-10">
+                <button class="button round-20 bg-black font-white font-12">+</button>
             </div>
         </section>
-        <section>
-            <h2>내일 할 일</h2>
-            <ul></ul>
-            <input type="text">
-            <div>
-                <button></button>
+        <section class="padding-20 bg-gray flex-column">
+            <h2 class="font-bold font-24 align-center">내일 할 일</h2>
+            <ul class="flex-1">
+                <li class="flex-row border-bottom-black padding-vertical-10">
+                    <div class="font-20">자스 공부</div>
+                    <button class="button round-20 bg-black font-white font-12">X</button>
+                </li>
+                <li class="flex-row border-bottom-black padding-vertical-10">
+                    <div class="font-20">자스 공부</div>
+                    <button class="button round-20 bg-black font-white font-12">X</button>
+                </li>
+            </ul>
+            <input type="text" class="padding-10 font-20">
+            <div class="align-center padding-top-10">
+                <button class="button round-20 bg-black font-white font-12">+</button>
             </div>
         </section>
     </main>
-    <footer></footer>
+    <footer class="flex-center height-5 align-center bg-pink"><span>WE SOPT WEB - SEOJIN KIM!</span></footer>
 </body>
 </html>
