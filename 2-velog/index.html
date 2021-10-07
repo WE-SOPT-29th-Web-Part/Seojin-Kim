@@ -11,9 +11,35 @@
 </head>
 <body>
     <header>
-        <div>Velog</div>
+        <div class="header__logo">Velog</div>
+        <div>
+            <i class="material-icons">search</i>
+            <div class="header__btn-write">새 글 작성</div>
+            <a href="" class="header__user-toggle">
+                <img class="header__user-thumbnail" src="https://avatars.githubusercontent.com/u/48249505?v=4" alt="user thumbnail">
+                <i class="material-icons">keyboard_arrow_down</i>
+            </a>
+        </div>
     </header>
-    <nav></nav>
+    <nav>
+        <div>
+            <a class="nav__item nav__item-selected">
+                <i class="material-icons">trending_up</i>
+                <span>트렌딩</span>
+            </a>
+            <a class="nav__item">
+                <i class="material-icons">schedule</i>
+                <span>최신</span>
+            </a>
+            <div class="nav__item nav__time-toggle">
+                <span>이번 주</span>
+                <i class="material-icons">keyboard_arrow_down</i>
+            </div>
+        </div>
+        <div>
+            <i class="material-icons">more_vert</i>
+        </div>
+    </nav>
     <section class="card-items">
         <div class="card-item">
             <img class="card-item__thumbnail" src="https://images.unsplash.com/photo-1549880181-56a44cf4a9a5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2370&q=80" alt="thumbnail">
@@ -123,6 +149,29 @@
                 </a>
                 <div class="card-item__likes">
                     <svg width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="#000000" d="M18 1l-6 4-6-4-6 5v7l12 10 12-10v-7z"></path>
+                    </svg>
+                    <span>2020</span>
+                </div>
+            </div>
+        </div>
+        <div class="card-item">
+            <img class="card-item__thumbnail" src="https://images.unsplash.com/photo-1549880181-56a44cf4a9a5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2370&q=80" alt="thumbnail">
+            <div class="card-item__main-info">
+                <h4 class="card-item__title">위 솝트</h4>
+                <div class="card-item__preview">3줄인경우<br>3줄인경우<br>3줄인경우</div>
+                <div class="card-item__sub-info">
+                    <span>4일 전</span>
+                    <span>1개의 댓글</span>
+                </div>
+            </div>
+            <div class="card-item__bottom-info">
+                <a href="" class="card-item__user-info">
+                    <img class="card-item__user-info__thumbnail" src="https://avatars.githubusercontent.com/u/48249505?v=4" alt="user thumbnail">
+                    <span>by <b>seojinseojin</b></span>
+                </a>
+                <div class="card-item__likes">
+                    <svg class="card-item__likes__icon" width="24" height="24" viewBox="0 0 24 24">
                         <path fill="#000000" d="M18 1l-6 4-6-4-6 5v7l12 10 12-10v-7z"></path>
                     </svg>
                     <span>2020</span>
