@@ -13,16 +13,17 @@
         <span>Simple To Do List</span>
     </header>
     <nav class="flex-center height-5">
-        <button class="button button-small bg-orange font-white">오늘만 보기</button>
-        <button class="button button-small bg-orange font-white">내일만 보기</button>
-        <button class="button button-small bg-orange font-white">함께 보기</button>
+        <button class="button button-today button-small bg-orange font-white">오늘만 보기</button>
+        <button class="button button-tomorrow button-small bg-orange font-white">내일만 보기</button>
+        <button class="button button-both button-small bg-orange font-white">함께 보기</button>
     </nav>
     <main class="flex-row flex-row-2 height-85">
-        <to-do-wrapper data-title="오늘 할 일"></to-do-wrapper>
-        <to-do-wrapper data-title="내일 할 일"></to-do-wrapper>
+        <to-do-wrapper class="todo-today" data-title="오늘 할 일"></to-do-wrapper>
+        <to-do-wrapper class="todo-tomorrow" data-title="내일 할 일"></to-do-wrapper>
     </main>
     <footer class="flex-center height-5 align-center bg-pink"><span>WE SOPT WEB - SEOJIN KIM!</span></footer>
     <script src="./scripts/components/TodoWrapper.js" type="module"></script>
     <script src="./scripts/components/TodoItem.js" type="module"></script>
+    <script src="./scripts/index.js"></script>
 </body>
 </html>
