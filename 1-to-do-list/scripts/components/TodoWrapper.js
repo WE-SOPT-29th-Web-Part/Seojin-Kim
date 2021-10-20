@@ -10,6 +10,7 @@ class TodoWrapper extends Component {
   initStyle() {
     this.style.boxSizing = "border-box";
     this.style.display = "flex";
+    this.style.transition = "all .2s";
   }
   deleteTodo(targetItem) {
     const { todoItems } = this.$state;
@@ -22,10 +23,10 @@ class TodoWrapper extends Component {
     this.setState({ todoItems: [...this.$state.todoItems, newTodo] });
   }
   show() {
-    this.style.display = "flex";
+    this.style.width = "100%";
   }
   hide() {
-    this.style.display = "none";
+    this.style.width = "0";
   }
   setEvent() {
     this.addEventListener("click", (e) => {
