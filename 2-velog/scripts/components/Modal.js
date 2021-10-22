@@ -12,6 +12,7 @@ class Modal extends Component {
     this.style.display = "none";
     this.style.alignItems = "center";
     this.style.justifyContent = "center";
+    this.style.flexDirection = "column";
   }
   show(element) {
     this.setState({ contentHTML: element.innerHTML });
@@ -20,10 +21,14 @@ class Modal extends Component {
   hide() {
     this.setState({ contentHTML: null });
     this.style.display = "none";
+    document.body.style.overflow = "scroll";
   }
   template() {
     const { contentHTML } = this.$state;
-    return contentHTML ? `<div class="modalwrapper">${contentHTML}</div>` : "";
+    return `<div class="modalwrapper">
+        ${contentHTML}
+    </div>
+    <button class="btn-card-modal" onclick="this.parentNode.hide()">X</button>`;
   }
 }
 

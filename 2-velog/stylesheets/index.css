@@ -199,6 +199,16 @@ nav > div {
     min-width: 380px;
 }
 
+.btn-card-modal {
+    margin-top: 12px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}
+
 @media (max-width: 1919px){
     header, nav, section {
         width: 1376px;

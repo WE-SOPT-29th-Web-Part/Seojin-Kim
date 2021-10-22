@@ -6,7 +6,6 @@ const cardItemsSection = $(".card-items"),
 
 document.addEventListener("click", () => {
   dropdownElement.hide();
-  cardModal.hide();
 });
 
 dropdownButton.addEventListener("click", (e) => {
@@ -19,5 +18,6 @@ cardItemsSection.addEventListener("click", (e) => {
   const selectedCard = e.target.closest(".card-item");
   if (selectedCard) {
     cardModal.show(selectedCard);
+    document.body.style.overflow = "hidden";
   }
 });
