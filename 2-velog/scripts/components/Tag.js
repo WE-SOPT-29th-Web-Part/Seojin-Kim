@@ -6,6 +6,7 @@ class TagItem extends Component {
     this.style.padding = "12px 18px";
     this.style.borderRadius = "20px";
     this.style.color = "rgb(18, 184, 134)";
+    this.style.cursor = "pointer";
   }
   template() {
     return `<div>${this.textContent}</div>`;

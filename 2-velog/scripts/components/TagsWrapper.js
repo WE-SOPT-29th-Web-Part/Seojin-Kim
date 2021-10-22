@@ -36,6 +36,16 @@ class TagWrapper extends Component {
     this.addEventListener("keypress", (e) => {
       if (e.key === "Enter") this.addTags();
     });
+    this.addEventListener("click", (e) => {
+      const targetTag = e.target.closest("tag-item");
+      if (targetTag) {
+        const targetTagContent = targetTag.textContent;
+        const filteredTags = this.$state.tags.filter(
+          (tag) => tag !== targetTagContent
+        );
+        this.setState({ tags: filteredTags });
+      }
+    });
   }
 }
 
