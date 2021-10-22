@@ -193,6 +193,11 @@ nav > div {
     padding-left: 12px;
 }
 
+.modalwrapper {
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 25%) 0px 8px 24px 0px;
+    min-width: 380px;
+}
 
 @media (max-width: 1919px){
     header, nav, section {
