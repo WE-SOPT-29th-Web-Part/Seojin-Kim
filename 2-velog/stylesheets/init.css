@@ -4,11 +4,15 @@ li, input {
 	box-sizing: border-box;
 }
 
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
 input {
 	border: none;
 }
 
-a {
-	text-decoration: none;
-	color: inherit;
+input:focus {
+    outline: none;
 }
