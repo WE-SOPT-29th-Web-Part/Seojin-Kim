@@ -67,6 +67,7 @@ nav > div {
     align-items: center;
     padding: 0 20px;
     color: grey;
+    position: relative;
 }
 
 .nav__item-selected {
@@ -78,6 +79,7 @@ nav > div {
 .nav__time-toggle {
     background-color: white;
     height: 1.8em;
+    width: 88px;
     font-size: 16px;
     padding: 0 12px;
 }
@@ -85,6 +87,27 @@ nav > div {
 .nav__time-toggle:hover {
     color: rgb(158, 158, 158);
     cursor: pointer;
+}
+
+.nav__time-toggle__dropdown {
+    padding: 12px;
+    margin-top: 8px;
+    background-color: white;
+    width: 120px;
+    box-shadow: rgb(0 0 0 / 20%) 0px 4px 16px 0px;
+}
+
+.nav__time-toggle__dropdown li {
+    padding: 10px 4px;
+    border-bottom: 1px solid grey;
+}
+
+.nav__time-toggle__dropdown li:last-child {
+    border-bottom: none;
+}
+
+.nav__time-toggle__dropdown li[selected="true"] {
+    color: rgb(18, 184, 134);
 }
 
 .card-items {
@@ -170,6 +193,21 @@ nav > div {
     padding-left: 12px;
 }
 
+.modalwrapper {
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 25%) 0px 8px 24px 0px;
+    min-width: 380px;
+}
+
+.btn-card-modal {
+    margin-top: 12px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}
 
 @media (max-width: 1919px){
     header, nav, section {

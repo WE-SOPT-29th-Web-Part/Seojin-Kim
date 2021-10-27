@@ -14,7 +14,9 @@
         <div class="header__logo">Velog</div>
         <div>
             <i class="material-icons">search</i>
-            <div class="header__btn-write">새 글 작성</div>
+            <div class="header__btn-write">
+                <a href="./create-post.html">새 글 작성</a>
+            </div>
             <a href="" class="header__user-toggle">
                 <img class="header__user-thumbnail" src="https://avatars.githubusercontent.com/u/48249505?v=4" alt="user thumbnail">
                 <i class="material-icons">keyboard_arrow_down</i>
@@ -34,6 +36,7 @@
             <div class="nav__item nav__time-toggle">
                 <span>이번 주</span>
                 <i class="material-icons">keyboard_arrow_down</i>
+                <drop-down style="display:none"></drop-down>
             </div>
         </div>
         <div>
@@ -179,5 +182,9 @@
             </div>
         </div>
     </section>
+    <card-modal></card-modal>
+    <script src="./scripts/components/Dropdown.js" type="module"></script>
+    <script src="./scripts/components/Modal.js" type="module"></script>
+    <script src="./scripts/index.js"></script>
 </body>
 </html>
