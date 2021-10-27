@@ -13,46 +13,17 @@
         <span>Simple To Do List</span>
     </header>
     <nav class="flex-center height-5">
-        <button class="button button-small bg-orange font-white">오늘만 보기</button>
-        <button class="button button-small bg-orange font-white">내일만 보기</button>
-        <button class="button button-small bg-orange font-white">함께 보기</button>
+        <button class="button button-today button-small bg-orange font-white">오늘만 보기</button>
+        <button class="button button-tomorrow button-small bg-orange font-white">내일만 보기</button>
+        <button class="button button-both button-small bg-orange font-white">함께 보기</button>
     </nav>
     <main class="flex-row flex-row-2 height-85">
-        <section class="border-right-black padding-20 bg-gray flex-column">
-            <h2 class="font-bold font-24 align-center">오늘 할 일</h2>
-            <ul class="flex-1">
-                <li class="flex-row border-bottom-black padding-vertical-10">
-                    <div class="font-20">자스 공부</div>
-                    <button class="button round-20 bg-black font-white font-12">X</button>
-                </li>
-                <li class="flex-row border-bottom-black padding-vertical-10">
-                    <div class="font-20">자스 공부</div>
-                    <button class="button round-20 bg-black font-white font-12">X</button>
-                </li>
-            </ul>
-            <input type="text" class="padding-10 font-20">
-            <div class="align-center padding-top-10">
-                <button class="button round-20 bg-black font-white font-12">+</button>
-            </div>
-        </section>
-        <section class="padding-20 bg-gray flex-column">
-            <h2 class="font-bold font-24 align-center">내일 할 일</h2>
-            <ul class="flex-1">
-                <li class="flex-row border-bottom-black padding-vertical-10">
-                    <div class="font-20">자스 공부</div>
-                    <button class="button round-20 bg-black font-white font-12">X</button>
-                </li>
-                <li class="flex-row border-bottom-black padding-vertical-10">
-                    <div class="font-20">자스 공부</div>
-                    <button class="button round-20 bg-black font-white font-12">X</button>
-                </li>
-            </ul>
-            <input type="text" class="padding-10 font-20">
-            <div class="align-center padding-top-10">
-                <button class="button round-20 bg-black font-white font-12">+</button>
-            </div>
-        </section>
+        <to-do-wrapper class="todo-today" data-title="오늘 할 일"></to-do-wrapper>
+        <to-do-wrapper class="todo-tomorrow" data-title="내일 할 일"></to-do-wrapper>
     </main>
     <footer class="flex-center height-5 align-center bg-pink"><span>WE SOPT WEB - SEOJIN KIM!</span></footer>
+    <script src="./scripts/components/TodoWrapper.js" type="module"></script>
+    <script src="./scripts/components/TodoItem.js" type="module"></script>
+    <script src="./scripts/index.js"></script>
 </body>
 </html>
