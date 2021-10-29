@@ -1,7 +1,9 @@
 import React from "react";
 
+import { FooterWrapper } from "../styles/Footer";
+
 const Footer = () => {
-  return <div>WE SOPT 29 WEB</div>;
+  return <FooterWrapper>WE SOPT 29 WEB</FooterWrapper>;
 };
 
 export default Footer;

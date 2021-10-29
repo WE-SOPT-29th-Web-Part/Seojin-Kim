@@ -1,14 +1,17 @@
 import React from "react";
 
+import { Input } from "../styles/Input";
+import { ResultTextWrapper } from "../styles/ResultTextWrapper";
+
 const ResultPlus = () => {
   return (
-    <div>
+    <ResultTextWrapper>
       <div>
-        <input />
+        <Input />
         일째 되는 날은?
       </div>
       <div></div>
-    </div>
+    </ResultTextWrapper>
   );
 };
 

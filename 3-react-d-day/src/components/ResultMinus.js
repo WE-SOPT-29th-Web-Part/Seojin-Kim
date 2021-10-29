@@ -1,15 +1,18 @@
 import React from "react";
 
+import { Input } from "../styles/Input";
+import { ResultTextWrapper } from "../styles/ResultTextWrapper";
+
 const ResultMinus = () => {
   return (
-    <div>
+    <ResultTextWrapper>
       <div>
         D-
-        <input />
+        <Input />
         일은?
       </div>
       <div></div>
-    </div>
+    </ResultTextWrapper>
   );
 };
 

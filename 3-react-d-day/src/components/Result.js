@@ -1,13 +1,15 @@
 import React from "react";
+
 import ResultMinus from "./ResultMinus";
 import ResultPlus from "./ResultPlus";
+import { ResultWrapper } from "../styles/ResultWrapper";
 
 const Result = () => {
   return (
-    <div>
+    <ResultWrapper>
       <ResultPlus />
       <ResultMinus />
-    </div>
+    </ResultWrapper>
   );
 };
 
