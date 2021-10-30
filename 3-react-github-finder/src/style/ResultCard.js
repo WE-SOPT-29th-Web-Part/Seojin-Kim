@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const ResultCardWrapper = styled.div`
+  position: relative;
   border-radius: 20px;
   background-color: #24292e;
   display: flex;
@@ -44,10 +45,11 @@ const ResultCardAnchor = styled.a`
 `;
 
 const ResultCardBottom = styled.div`
-  display: flex;
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
   gap: 12px;
-  justify-content: space-between;
   & > div {
     padding: 12px;
     background-color: black;
@@ -60,6 +62,17 @@ const ResultCardBottom = styled.div`
   }
 `;
 
+const ResultCardCloseButton = styled.button`
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 12px;
+  border-radius: 12px;
+  border: none;
+  background-color: black;
+  color: white;
+`;
+
 export {
   ResultCardWrapper,
   ResultCardProfileImg,
@@ -67,4 +80,5 @@ export {
   ResultCardText,
   ResultCardAnchor,
   ResultCardBottom,
+  ResultCardCloseButton,
 };

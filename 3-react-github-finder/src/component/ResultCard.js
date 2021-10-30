@@ -9,20 +9,21 @@ import {
   ResultCardText,
   ResultCardAnchor,
   ResultCardBottom,
+  ResultCardCloseButton,
 } from "../style/ResultCard";
 
-const ResultCard = ({ username }) => {
-  const { user, isLoading, isError } = useGithubUser("seojinseojin");
+const ResultCard = ({ targetUser, setTargetUser }) => {
+  const { user, isLoading, isError } = useGithubUser(targetUser);
 
+  if (targetUser === null) return null;
   if (isLoading) return null;
   if (isError)
     return (
-      <ResultCardWrapper>
+      <ResultCardWrapper style={{ backgroundColor: "red" }}>
         <ResultCardH1>No user</ResultCardH1>
       </ResultCardWrapper>
     );
 
-  console.log(user);
   const {
     avatar_url,
     followers,
@@ -35,6 +36,9 @@ const ResultCard = ({ username }) => {
   } = user;
   return (
     <ResultCardWrapper>
+      <ResultCardCloseButton onClick={() => setTargetUser(null)}>
+        닫기
+      </ResultCardCloseButton>
       <ResultCardProfileImg src={avatar_url} />
       <div>
         <ResultCardH1>{name}</ResultCardH1>
