@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import useGithubUser from "../useGithubUser";
+import useGithubUser from '../useGithubUser';
 
 import {
   ResultCardProfileImg,
@@ -10,16 +10,17 @@ import {
   ResultCardAnchor,
   ResultCardBottom,
   ResultCardCloseButton,
-} from "../style/ResultCard";
+} from '../style/ResultCard';
+import { Loader } from '../style/Loader';
 
 const ResultCard = ({ targetUser, setTargetUser }) => {
   const { user, isLoading, isError } = useGithubUser(targetUser);
 
   if (targetUser === null) return null;
-  if (isLoading) return null;
+  if (isLoading) return <Loader />;
   if (isError)
     return (
-      <ResultCardWrapper style={{ backgroundColor: "red" }}>
+      <ResultCardWrapper style={{ backgroundColor: 'red' }}>
         <ResultCardH1>No user</ResultCardH1>
       </ResultCardWrapper>
     );
@@ -34,6 +35,7 @@ const ResultCard = ({ targetUser, setTargetUser }) => {
     html_url,
     public_repos,
   } = user;
+
   return (
     <ResultCardWrapper>
       <ResultCardCloseButton onClick={() => setTargetUser(null)}>
