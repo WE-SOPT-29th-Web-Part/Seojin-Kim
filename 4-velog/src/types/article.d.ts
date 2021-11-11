@@ -4,7 +4,8 @@ interface Article {
   body: string;
   summary: string;
   series: string | undefined;
-  tags: string[];
+  tags: string;
+  parsedTags?: string[];
   thumbnail?: string;
   date: string;
 }

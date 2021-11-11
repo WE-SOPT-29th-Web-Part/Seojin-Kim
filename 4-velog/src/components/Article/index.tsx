@@ -2,7 +2,7 @@ import React from 'react';
 import Tag from '../Tag';
 
 export default function Article({
-  article: { title, summary, tags, thumbnail, date },
+  article: { title, summary, parsedTags: tags, thumbnail, date },
 }: {
   article: Article;
 }) {
@@ -12,8 +12,8 @@ export default function Article({
       <div>{title}</div>
       <div>{summary}</div>
       <div>
-        {tags.map((tag) => (
-          <Tag content={tag} />
+        {tags?.map((tag, index) => (
+          <Tag content={tag} key={index} />
         ))}
       </div>
       <div>{date}</div>
