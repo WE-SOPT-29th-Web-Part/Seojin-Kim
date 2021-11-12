@@ -8,9 +8,11 @@ export default function Article({
 }) {
   return (
     <div>
-      {thumbnail && <img src={thumbnail} alt='thumbnail' />}
+      {thumbnail && thumbnail !== 'undefined' && (
+        <img src={thumbnail} alt='thumbnail' />
+      )}
       <div>{title}</div>
-      <div>{summary}</div>
+      {summary && summary !== 'undefined' && <div>{summary}</div>}
       <div>
         {tags?.map((tag, index) => (
           <Tag content={tag} key={index} />

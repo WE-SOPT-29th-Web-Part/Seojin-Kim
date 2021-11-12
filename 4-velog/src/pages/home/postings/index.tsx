@@ -1,24 +1,20 @@
 import React from 'react';
-import useSWR from 'swr';
 import Article from '../../../components/Article';
-import { getFetcher } from '../../../utils/api/getFetcher';
+import useArticle from '../../../api/useArticle';
 
 export default function PostingPage() {
-  const { data, error } = useSWR(
-    'https://velog-dummy-server.herokuapp.com/articles',
-    getFetcher
-  );
+  const { data, isLoading, isError } = useArticle();
 
-  if (error) return <div>failed to load</div>;
+  if (isLoading) return <div>Loading!</div>;
 
-  if (!data) return <div>loading...</div>;
+  if (isError) return <div>Error!</div>;
 
   return (
     <div>
       {data.article?.map((article: Article) => (
         <Article
           key={article.id}
-          article={{ ...article, parsedTags: article.tags.split(',') }}
+          article={{ ...article, parsedTags: article.tags?.split(',') }}
         />
       ))}
     </div>
