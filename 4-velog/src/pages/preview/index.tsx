@@ -9,13 +9,13 @@ export default function PreviewPage() {
 
   const { article, contextDispatch } = useContext(Store);
 
-  const { data, mutate } = useArticle();
+  const { mutate } = useArticle();
 
-  const publishArticle = () => {
+  const publishArticle = async () => {
     const newSummary = { summary: newPreview };
     contextDispatch({ type: 'SET_PREVIEW', value: newSummary });
-    postArticle({ article: { ...article, summary: newPreview } });
-    mutate([...data.article, article]);
+    await postArticle({ article: { ...article, summary: newPreview } });
+    mutate();
   };
 
   return (
