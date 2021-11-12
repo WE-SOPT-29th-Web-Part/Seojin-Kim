@@ -1,5 +1,6 @@
 import React from 'react';
+import { Wrapper } from './style';
 
 export default function Tag({ content }: { content: string }) {
-  return <div>{content}</div>;
+  return <Wrapper>{content}</Wrapper>;
 }

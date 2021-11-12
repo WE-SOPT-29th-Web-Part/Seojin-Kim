@@ -1,5 +1,6 @@
 import React from 'react';
 import Tag from '../Tag';
+import { DateTime, Summary, Title, Wrapper } from './style';
 
 export default function Article({
   article: { title, summary, parsedTags: tags, thumbnail, date },
@@ -7,18 +8,18 @@ export default function Article({
   article: Article;
 }) {
   return (
-    <div>
+    <Wrapper>
       {thumbnail && thumbnail !== 'undefined' && (
         <img src={thumbnail} alt='thumbnail' />
       )}
-      <div>{title}</div>
-      {summary && summary !== 'undefined' && <div>{summary}</div>}
+      <Title>{title}</Title>
+      {summary && summary !== 'undefined' && <Summary>{summary}</Summary>}
       <div>
         {tags?.map((tag, index) => (
           <Tag content={tag} key={index} />
         ))}
       </div>
-      <div>{date}</div>
-    </div>
+      <DateTime>{date}</DateTime>
+    </Wrapper>
   );
 }

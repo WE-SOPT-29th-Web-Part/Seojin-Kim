@@ -14,7 +14,6 @@ export default function HomePage() {
       <StyledContainer>
         <Header />
         <UserProfile />
-        <div>home</div>
         <Link to={`${match.path}/postings`}>포스팅</Link>
         <Link to={`${match.path}/series`}>시리즈</Link>
         <Route path={`${match.path}/postings`} component={PostingPage} />

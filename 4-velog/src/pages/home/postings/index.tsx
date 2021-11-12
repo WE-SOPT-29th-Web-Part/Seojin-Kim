@@ -11,12 +11,16 @@ export default function PostingPage() {
 
   return (
     <div>
-      {data.article?.map((article: Article) => (
-        <Article
-          key={article.id}
-          article={{ ...article, parsedTags: article.tags?.split(',') }}
-        />
-      ))}
+      {data.article.length ? (
+        data.article.map((article: Article) => (
+          <Article
+            key={article.id}
+            article={{ ...article, parsedTags: article.tags?.split(',') }}
+          />
+        ))
+      ) : (
+        <div>글쓰기를 눌러 포스트를 작성해주세요</div>
+      )}
     </div>
   );
 }
