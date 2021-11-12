@@ -2,7 +2,6 @@ import React, { useReducer } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import articleReducer from './articleReducer';
 import HomePage from './pages/home';
-import PreviewPage from './pages/preview';
 import WritePage from './pages/write';
 import Store from './store';
 
@@ -14,7 +13,6 @@ function App() {
         <Switch>
           <Route path='/home' component={HomePage} />
           <Route path='/write' component={WritePage} />
-          <Route path='/preview' component={PreviewPage} />
           <Route path='/'>
             <Redirect to='/home' />
           </Route>
