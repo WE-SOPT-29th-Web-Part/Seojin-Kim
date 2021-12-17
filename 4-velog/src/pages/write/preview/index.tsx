@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import postArticle from '../../../api/postArticle';
-import useArticle from '../../../api/useArticle';
+import useArticles from '../../../api/useArticles';
 import { GreenButton } from '../../../components/Button/style';
 import Store from '../../../store';
 import { GridWrapper, StyledContainer, StyledWrapper, Title } from './style';
@@ -11,7 +11,7 @@ export default function PreviewPage() {
 
   const { article, contextDispatch } = useContext(Store);
 
-  const { mutate } = useArticle();
+  const { mutate } = useArticles();
 
   const publishArticle = async () => {
     const newSummary = { summary: newPreview };

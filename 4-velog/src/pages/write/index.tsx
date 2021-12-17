@@ -18,7 +18,7 @@ export default function WritePage() {
   const { contextDispatch } = useContext(Store);
 
   const saveWrite = () => {
-    const newWrite = { title: newTitle, body: newBody, parsedTags: tags };
+    const newWrite = { title: newTitle, body: newBody, tags };
     contextDispatch({ type: 'SET_WRITE', value: newWrite });
   };
 
@@ -44,7 +44,7 @@ export default function WritePage() {
           autoComplete='off'
         >
           {tags.map((tag) => (
-            <Tag content={tag} />
+            <Tag content={tag} key={tag} />
           ))}
           <input
             name='new_tag'

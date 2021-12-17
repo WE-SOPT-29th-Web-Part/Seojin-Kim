@@ -1,9 +1,9 @@
 import React from 'react';
 import Article from '../../../components/Article';
-import useArticle from '../../../api/useArticle';
+import useArticles from '../../../api/useArticles';
 
 export default function PostingPage() {
-  const { data, isLoading, isError } = useArticle();
+  const { data, isLoading, isError } = useArticles();
 
   if (isLoading) return <div>Loading!</div>;
 
@@ -11,12 +11,9 @@ export default function PostingPage() {
 
   return (
     <div>
-      {data.article.length ? (
-        data.article.map((article: Article) => (
-          <Article
-            key={article.id}
-            article={{ ...article, parsedTags: article.tags?.split(',') }}
-          />
+      {data.length ? (
+        data.map((article: Article) => (
+          <Article key={article.id} article={article} />
         ))
       ) : (
         <div>글쓰기를 눌러 포스트를 작성해주세요</div>

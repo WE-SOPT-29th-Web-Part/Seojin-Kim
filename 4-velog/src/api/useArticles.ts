@@ -1,9 +1,9 @@
 import useSWR from 'swr';
 import { getFetcher } from './getFetcher';
 
-export default function useArticle() {
+export default function useArticles() {
   const { data, error, mutate } = useSWR(
-    'https://velog-dummy-server.herokuapp.com/articles',
+    'http://localhost:5005/api/article',
     getFetcher
   );
   return {

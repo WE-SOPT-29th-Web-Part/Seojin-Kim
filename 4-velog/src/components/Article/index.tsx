@@ -3,7 +3,7 @@ import Tag from '../Tag';
 import { DateTime, Summary, Title, Wrapper } from './style';
 
 export default function Article({
-  article: { title, summary, parsedTags: tags, thumbnail, date },
+  article: { title, summary, thumbnail, date, tags },
 }: {
   article: Article;
 }) {
