@@ -4,6 +4,8 @@ import articleReducer from './articleReducer';
 import HomePage from './pages/home';
 import WritePage from './pages/write';
 import Store from './store';
+import './reset.css';
+import ArticlePage from './pages/article';
 
 function App() {
   const [state, contextDispatch] = useReducer(articleReducer, {});
@@ -13,6 +15,7 @@ function App() {
         <Switch>
           <Route path='/home' component={HomePage} />
           <Route path='/write' component={WritePage} />
+          <Route path='/articles/:id' component={ArticlePage} />
           <Route path='/'>
             <Redirect to='/home' />
           </Route>
