@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Route, useRouteMatch } from 'react-router';
 import { GreenButton } from '../../components/Button/style';
@@ -7,7 +7,7 @@ import Store from '../../store';
 import { StyledContainer, StyledWrapper } from './style';
 import PreviewPage from './preview';
 
-export default function WritePage() {
+export default function WritePage({ isEdit = false }: { isEdit?: boolean }) {
   const [tags, setTags] = useState<string[]>([]);
   const [newTitle, setNewTitle] = useState('');
   const [newTag, setNewTag] = useState('');
@@ -15,12 +15,20 @@ export default function WritePage() {
 
   const match = useRouteMatch();
 
-  const { contextDispatch } = useContext(Store);
+  const { contextDispatch, article } = useContext(Store);
 
   const saveWrite = () => {
     const newWrite = { title: newTitle, body: newBody, tags };
     contextDispatch({ type: 'SET_WRITE', value: newWrite });
   };
+
+  useEffect(() => {
+    if (isEdit) {
+      setNewTitle(article.title);
+      setNewBody(article.body);
+      setTags(article.tags);
+    }
+  }, [isEdit]);
 
   return (
     <StyledWrapper>
@@ -64,6 +72,7 @@ export default function WritePage() {
             setNewBody(e.target.value);
           }}
           placeholder='당신의 이야기를 적어보세요...'
+          value={newBody}
         />
         <GreenButton>
           <Link to={`${match.path}/preview`} onClick={saveWrite}>
@@ -71,7 +80,9 @@ export default function WritePage() {
           </Link>
         </GreenButton>
       </StyledContainer>
-      <Route path={`${match.path}/preview`} component={PreviewPage} />
+      <Route path={`${match.path}/preview`}>
+        <PreviewPage isEdit={isEdit} />
+      </Route>
     </StyledWrapper>
   );
 }

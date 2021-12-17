@@ -1,5 +1,6 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import patchArticle from '../../../api/patchArticle';
 import postArticle from '../../../api/postArticle';
 import postImage from '../../../api/postImage';
 import useArticles from '../../../api/useArticles';
@@ -13,7 +14,7 @@ import {
   Title,
 } from './style';
 
-export default function PreviewPage() {
+export default function PreviewPage({ isEdit = false }: { isEdit?: boolean }) {
   const [newPreview, setNewPreview] = useState('');
 
   const { article, contextDispatch } = useContext(Store);
@@ -23,13 +24,30 @@ export default function PreviewPage() {
 
   const { mutate } = useArticles();
 
+  useEffect(() => {
+    if (isEdit) {
+      setImageURL(article.thumbnail);
+      setNewPreview(article.summary);
+    }
+  }, [isEdit]);
+
   const publishArticle = async () => {
     const newSummary = { summary: newPreview };
-    contextDispatch({ type: 'SET_PREVIEW', value: newSummary });
+    contextDispatch({
+      type: 'SET_PREVIEW',
+      value: newSummary,
+      thumbnail: imageURL,
+    });
     await postArticle({
       article: { ...article, summary: newPreview, thumbnail: imageURL },
     });
     mutate();
+  };
+
+  const onPatchArticle = async () => {
+    patchArticle({
+      article: { ...article, summary: newPreview, thumbnail: imageURL },
+    });
   };
 
   const uploadImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -74,7 +92,10 @@ export default function PreviewPage() {
           ></input>
           <div>
             <GreenButton>
-              <Link to='/home/postings' onClick={publishArticle}>
+              <Link
+                to='/home/postings'
+                onClick={isEdit ? onPatchArticle : publishArticle}
+              >
                 출간하기
               </Link>
             </GreenButton>

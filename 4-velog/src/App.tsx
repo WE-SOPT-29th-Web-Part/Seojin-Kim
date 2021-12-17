@@ -15,6 +15,9 @@ function App() {
         <Switch>
           <Route path='/home' component={HomePage} />
           <Route path='/write' component={WritePage} />
+          <Route path='/articles/:id/edit'>
+            <WritePage isEdit={true} />
+          </Route>
           <Route path='/articles/:id' component={ArticlePage} />
           <Route path='/'>
             <Redirect to='/home' />
