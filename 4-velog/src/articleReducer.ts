@@ -16,7 +16,6 @@ export default function articleReducer(
       }월 ${date.getDate()}일`;
       return { ...state, ...action.value, date: dateString };
     case 'SET_PREVIEW':
-      console.log('2', { ...state, ...action.value });
       return { ...state, ...action.value };
     case 'SET_ALL':
       return { ...action.value };
