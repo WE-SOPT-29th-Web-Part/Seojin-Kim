@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import getArticleByID from '../../api/getArticleByID';
+import Article from '../../components/Article';
 
 function ArticlePage() {
   const { id }: { id: string } = useParams();
@@ -13,7 +14,9 @@ function ArticlePage() {
       setArticle(article);
     })();
   }, [id]);
-  return <div>{id}</div>;
+
+  if (!article) return <div>로딩중</div>;
+  return <Article article={article} isPreview={false} />;
 }
 
 export default ArticlePage;

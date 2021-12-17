@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
-const Wrapper = styled.div`
-  border-bottom: 1px solid rgb(241, 243, 245);
+interface IWrapper {
+  isPreview: boolean;
+}
+const Wrapper = styled.div<IWrapper>`
+  ${({ isPreview }) =>
+    isPreview && 'border-bottom: 1px solid rgb(241, 243, 245);'}
+  ${({ isPreview }) => !isPreview && 'padding: 20px;'}
   margin: 52px 0;
 `;
 

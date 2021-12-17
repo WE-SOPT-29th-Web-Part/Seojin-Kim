@@ -131,13 +131,12 @@ body {
 }
 
 a {
-  color: #2454a6;
   text-decoration: none;
+  color: black;
 }
 
 * {
   box-sizing: border-box;
-  color: #2454a6;
 }
 
 div {

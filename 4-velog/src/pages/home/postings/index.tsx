@@ -13,7 +13,7 @@ export default function PostingPage() {
     <div>
       {data.length ? (
         data.map((article: Article) => (
-          <Article key={article.id} article={article} />
+          <Article key={article.id} article={article} isPreview={true} />
         ))
       ) : (
         <div>글쓰기를 눌러 포스트를 작성해주세요</div>
