@@ -1,6 +1,7 @@
 import React from 'react';
 import Article from '../../../components/Article';
 import useArticles from '../../../api/useArticles';
+import { Link } from 'react-router-dom';
 
 export default function PostingPage() {
   const { data, isLoading, isError } = useArticles();
@@ -13,7 +14,9 @@ export default function PostingPage() {
     <div>
       {data.length ? (
         data.map((article: Article) => (
-          <Article key={article.id} article={article} isPreview={true} />
+          <Link key={article.id} to={`/articles/${article.id}`}>
+            <Article article={article} isPreview={true} />
+          </Link>
         ))
       ) : (
         <div>글쓰기를 눌러 포스트를 작성해주세요</div>

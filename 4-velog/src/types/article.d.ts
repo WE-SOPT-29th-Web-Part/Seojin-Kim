@@ -1,5 +1,5 @@
 interface Article extends Write, Preview {
-  id?: number;
+  id?: string;
   date?: string;
 }
 
