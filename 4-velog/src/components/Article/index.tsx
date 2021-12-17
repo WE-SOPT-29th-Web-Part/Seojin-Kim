@@ -1,6 +1,6 @@
 import React from 'react';
 import Tag from '../Tag';
-import { DateTime, Summary, Title, Wrapper } from './style';
+import { DateTime, Summary, Title, Wrapper, Thumbnail } from './style';
 
 export default function Article({
   article: { title, summary, thumbnail, date, tags },
@@ -10,7 +10,7 @@ export default function Article({
   return (
     <Wrapper>
       {thumbnail && thumbnail !== 'undefined' && (
-        <img src={thumbnail} alt='thumbnail' />
+        <Thumbnail src={thumbnail} alt='thumbnail' />
       )}
       <Title>{title}</Title>
       {summary && summary !== 'undefined' && <Summary>{summary}</Summary>}

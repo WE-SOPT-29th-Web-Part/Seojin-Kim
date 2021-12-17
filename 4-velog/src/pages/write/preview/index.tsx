@@ -1,29 +1,65 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import postArticle from '../../../api/postArticle';
+import postImage from '../../../api/postImage';
 import useArticles from '../../../api/useArticles';
 import { GreenButton } from '../../../components/Button/style';
 import Store from '../../../store';
-import { GridWrapper, StyledContainer, StyledWrapper, Title } from './style';
+import {
+  GridWrapper,
+  ImageInput,
+  StyledContainer,
+  StyledWrapper,
+  Title,
+} from './style';
 
 export default function PreviewPage() {
   const [newPreview, setNewPreview] = useState('');
 
   const { article, contextDispatch } = useContext(Store);
+  const [imageURL, setImageURL] = useState<string | null>(null);
+
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const { mutate } = useArticles();
 
   const publishArticle = async () => {
     const newSummary = { summary: newPreview };
     contextDispatch({ type: 'SET_PREVIEW', value: newSummary });
-    await postArticle({ article: { ...article, summary: newPreview } });
+    await postArticle({
+      article: { ...article, summary: newPreview, thumbnail: imageURL },
+    });
     mutate();
+  };
+
+  const uploadImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const target = e.target as HTMLInputElement;
+    if (!target.files) return;
+    const file = target.files[0];
+    const formData = new FormData();
+    formData.append('file', file);
+    const response = await postImage(formData);
+    const responseJSON = await response.json();
+    setImageURL(responseJSON.url);
+  };
+
+  const fireFileInput = () => {
+    if (!fileInputRef.current) return;
+    fileInputRef.current.click();
   };
 
   return (
     <StyledWrapper>
       <StyledContainer>
         <Title>포스트 미리보기</Title>
+        <ImageInput onClick={fireFileInput}>
+          {imageURL ? (
+            <img src={imageURL} alt='thumbnail' />
+          ) : (
+            <div>썸네일 업로드</div>
+          )}
+          <input type='file' ref={fileInputRef} onChange={uploadImage} />
+        </ImageInput>
         <GridWrapper>
           <input
             name='preview'

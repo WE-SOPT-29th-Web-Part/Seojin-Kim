@@ -24,4 +24,9 @@ const DateTime = styled.div`
   margin-top: 28px;
 `;
 
-export { Wrapper, Title, Summary, DateTime };
+const Thumbnail = styled.img`
+  width: 100%;
+  height: 420px;
+  object-fit: contain;
+`;
+export { Wrapper, Title, Summary, DateTime, Thumbnail };
